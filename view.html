@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Mail</title>
+</head>
+
+<body>
+    <style>
+              
+* {
+	box-sizing: border-box;
+}
+body {
+	font-family: 'Montserrat', sans-serif;
+	line-height: 1.6;
+	margin: 0;
+	min-height: 100vh;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+h2,
+h3,
+a {
+	color: #34495e;
+}
+
+a {
+	text-decoration: none;
+}
+
+
+
+.logo {
+	margin: 0;
+	font-size: 1.45em;
+}
+
+.main-nav {
+	margin-top: 5px;
+
+}
+.logo a,
+.main-nav a {
+	padding: 10px 15px;
+	text-transform:capitalize;
+	text-align: center;
+	display: block;
+}
+
+.main-nav a {
+	color: #34495e;
+	font-size: .99em;
+}
+
+.main-nav a:hover {
+	color: #718daa;
+}
+
+
+
+.header {
+	padding-top: .5em;
+	padding-bottom: .5em;
+	border: 1px solid #a2a2a2;
+	background-color: #f4f4f4;
+	-webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+
+/* ================================= 
+  Media Queries
+==================================== */
+
+
+
+
+@media (min-width: 769px) {
+	.header,
+	.main-nav {
+		display: flex;
+	}
+	.header {
+		flex-direction: column;
+		align-items: center;
+    	.header{
+		width: 80%;
+		margin: 0 auto;
+		max-width: 1150px;
+	}
+	}
+
+}
+
+@media (min-width: 1025px) {
+	.header {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+}
+
+    </style>
+    <section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <header class="header">
+        <h1 class="logo"><a href="#">Hoorah!</a></h1>
+        <ul class="main-nav">
+            <li><a href="index.html">Log-in</a></li>
+            <li><a href="mails.html">Mails</a></li>
+            <li><a href="new.html">New Mail</a></li>
+            <li><a href="view.html">View Mail</a></li>
+        </ul>
+    </header>
+    </section>
+        <style>
+            html{
+                background-color: #152733;
+            }
+            body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.section{
+    background-color: #f0f0f0;
+}
+.email-viewer {
+    display: flex;
+    max-width: 800px;
+    margin: 20px auto;
+    border: 1px solid #df0606;
+}
+
+.email-list {
+    width: 30%;
+    border-right: 1px solid #000000;
+    overflow-y: auto;
+}
+
+.email-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.email-item:hover {
+    background-color: #ffdcdc;
+}
+
+.email-content {
+    display: none;
+    padding: 20px;
+    width: 70%;
+    box-sizing: border-box;
+}
+
+.email-content p {
+    margin-bottom: 10px;
+}
+
+.email-content .sender {
+    font-weight: bold;
+}
+
+.email-content .subject {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.email-content .timestamp {
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.message {
+    line-height: 1.6;
+}
+
+/* Style for the active email item */
+.email-item.active {
+    background-color: #e6f7ff;
+}
+
+h2{
+    text-align: center;
+}
+
+.heading2{
+    text-align: center;
+    text-transform: capitalize;
+}
+
+        </style>
+        <section class="section">
+        <div><h2>View your emails here!</h2></div>
+        <div class="email-viewer">
+            <div class="email-list">
+                <div class="email-item" onclick="showEmail('email1')">
+                    <p class="sender">John Doe</p>
+                    <p class="subject">Meeting Tomorrow</p>
+                </div>
+                <!-- Add more email items as needed -->
+        
+                <!-- Example email item -->
+                <!-- <div class="email-item" onclick="showEmail('email2')">
+                    <p class="sender">Jane Smith</p>
+                    <p class="subject">Project Update</p>
+                </div> -->
+            </div>
+        
+            <div class="email-content" id="email1">
+                <p class="sender">John Doe &lt;john.doe@example.com&gt;</p>
+                <p class="subject">Meeting Tomorrow</p>
+                <p class="timestamp">Date: January 1, 2023 10:00 AM</p>
+                <div class="message">
+                    <p>Hello,</p>
+                    <p>This is the content of the email.</p>
+                    <p>Best regards,<br>John Doe</p>
+                </div>
+            </div>
+        </div>
+        <div><h2 class="heading2">Currently there are no other emails to view.</h2></div>
+        
+        <!-- Add links to JavaScript libraries or your custom scripts -->
+        <script>
+            function showEmail(emailId) {
+                // Hide all email content divs
+                var emailContents = document.querySelectorAll('.email-content');
+                emailContents.forEach(function (content) {
+                    content.style.display = 'none';
+                });
+        
+                // Show the selected email content
+                var selectedEmail = document.getElementById(emailId);
+                if (selectedEmail) {
+                    selectedEmail.style.display = 'block';
+                }
+            }
+        </script>
+        
+    </section>
+    </body>
+</html>
